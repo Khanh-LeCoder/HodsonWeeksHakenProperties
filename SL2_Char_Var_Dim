@@ -14,10 +14,16 @@ def dim_SL2_char_var(name):
 
 def compute_homology(name):
     M = snappy.Manifold(name)
-    return [name,str(M.homology())]
+    return [name,str(M.homology().betti_number())]
 
 res = []
 for name in HakenList:
     item = compute_homology(name)
     print(item)
     res.append(item)
+
+for k in range(31,40):
+    item = res[k]
+    name = item[0]
+    item.append(dim_SL2_char_var(name))
+    print(item)
