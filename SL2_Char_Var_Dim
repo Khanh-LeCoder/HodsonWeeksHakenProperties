@@ -1,0 +1,11 @@
+def dim_SL2_char_var(name):
+    """
+    Input:  The name of a manifold from the Hodson Weeks census
+    Output: The dimension of the SL2C character variety of the manifold
+    """
+
+    M = snappy.Manifold(name)
+    G = M.fundamental_group()
+    I = G.character_variety_vars_and_polys('as_ideal')
+    J = radical(I)
+    return J.dimension()
