@@ -13,7 +13,14 @@ def read_name(file_name):
   with open(file_name, 'r') as open_file:
     content = open_file.readlines()
   
-  return [name[:-1] for name in content]
+  mfld_list = []    
+  for name in content: 
+    if name.find("\n") != -1
+      mfld_list(append(name[:name.find("\n")]))
+    else:
+      mfld_list(append(name))
+
+  return mfld_list
 
 def is_QHS3(name):
   """
