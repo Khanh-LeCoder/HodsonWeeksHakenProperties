@@ -85,15 +85,22 @@ def is_relations_hold(hom_relations):
     return check
 
 def is_Dinfty_quotient(name):
+    """
+    Input:
+    Output:
+    """
     M = snappy.Manifold(name)
     G = M.fundamental_group()
     num_generators = len(G.generators())
+    relations = G.relators()
     hom_list = candidate_hom(num_generators)
 
-    
+    check = False
+    for hom in hom_list:
+        hom_relations = sub_relation(relations,hom)
+        check = check or is_relations_hold(hom_relations)
 
-
-  
+    return check 
 
 
 
