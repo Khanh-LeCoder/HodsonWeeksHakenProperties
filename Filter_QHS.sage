@@ -44,6 +44,6 @@ def write_QHS3(file_name):
       volume = str(M.volume())
       homology = str(M.homology())
       with open("Haken_QHS3_data.txt", "a") as open_file:
-        open_file.write("| " + name + " | " + volume + " | " + homology + " | " + " | " + " |")
+        open_file.write("| " + name + " | " + volume + " | " + homology + " | " + " | " + " |\n")
       
   
