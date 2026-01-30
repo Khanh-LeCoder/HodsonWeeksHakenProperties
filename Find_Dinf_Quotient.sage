@@ -48,10 +48,10 @@ def reduce_dihedral(word):
     while word.find('xx') != -1 or word.find('yy') != -1:
         if word.find('xx') != -1:
             index = word.find('xx')
-            word = word[:index] + word[index + 1:]
+            word = word[:index] + word[index + 2:]
         if word.find('yy') != -1:
             index = word.find('yy')
-            word = word[:index] + word[index + 1:]
+            word = word[:index] + word[index + 2:]
     return word
 
 def candidate_hom(num_generators):
