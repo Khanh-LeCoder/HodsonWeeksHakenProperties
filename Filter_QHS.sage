@@ -42,7 +42,32 @@ def elem_div_factor(name):
   M = snappy.Manifold(name)
   return len(M.homology().elementary_divisors())
 
+def sum_b1_deg2cover(name):
+  """
+  Input: The name of a 3-manifold
+  Output: The sum of the betti number of all degree two cover
+  """
+  M = snappy.Manifold(name)
+  cov2 = M.cover(2)
+  
+  sum_b1 = 0
+  if len(cov2) > 0:
+    for N in cov2:
+      sum_b1 += N.homology().betti_number()
 
+  return sum_b1
+
+def is_deg2cover_zero_b1(name):
+  """
+  Input: The name of a 3-manifold
+  Output: True if the number of elementary divisor factors is at least two and there is a positive betti number among degree two cover 
+  """
+  if elem_div_factor(name) and sum_b1_deg2cover(name) > 0:
+    return True
+  else:
+    return False
+  
+  
 def write_QHS3(file_name):
   """
   Input: The name of the file containing the list of 3-manifolds from the census. Assume they are all orientable
