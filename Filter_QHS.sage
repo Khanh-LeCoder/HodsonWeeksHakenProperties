@@ -86,7 +86,7 @@ def write_QHS3(file_name):
   mfld_list = read_name(file_name)
   
   with open("Haken_QHS3_data.txt", "w") as open_file:
-    open_file.write("| Name | Volume | Homology | D_inf Quotient | Large SL2C |\n|---|---|---|---|---|\n")
+    open_file.write("| Name | Volume | Homology | Dihedral Quotient | Large SL2C Char. Var. | Algebraic Non-integral |\n|---|---|---|---|---|---|\n")
 
   for name in mfld_list:
     if is_QHS3(name):
@@ -96,13 +96,13 @@ def write_QHS3(file_name):
       if elem_div_factor(name) >=2 and sum_b1_deg2cover(name) > 0:
         if is_Dinfty_quotient(name):
           with open("Haken_QHS3_data.txt", "a") as open_file: 
-            open_file.write("| " + name + " | " + volume + " | " + homology + " | " + "Yes" + " | " + " |\n")
+            open_file.write("| " + name + " | " + volume + " | " + homology + " | " + "Yes" + " | " + " | " + " |\n")
         else:
           with open("Haken_QHS3_data.txt", "a") as open_file: 
-            open_file.write("| " + name + " | " + volume + " | " + homology + " | " + "No" + " | " + " |\n")
+            open_file.write("| " + name + " | " + volume + " | " + homology + " | " + "No" + " | " + " | " + " |\n")
       elif elem_div_factor(name) >=2 and sum_b1_deg2cover(name) == 0: 
         with open("Haken_QHS3_data.txt", "a") as open_file: 
-          open_file.write("| " + name + " | " + volume + " | " + homology + " | " + "No" + " | " + " |\n")
+          open_file.write("| " + name + " | " + volume + " | " + homology + " | " + "No" + " | " + " | " + " |\n")
       else:  
         with open("Haken_QHS3_data.txt", "a") as open_file: 
           open_file.write("| " + name + " | " + volume + " | " + homology + " | " + "No" + " | " + " |\n")
