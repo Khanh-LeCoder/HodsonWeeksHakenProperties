@@ -1,4 +1,4 @@
-| Name | Volume | Homology | D_inf Quotient | Large SL2C |
+| Name | Volume | Homology | D_$\infty$ Quotient | Large SL2C |
 |---|---|---|---|---|
 | m015(8,1) | 2.36270079255450 | Z/10 | No |  |
 | m019(3,4) | 2.42558537866637 | Z/50 | No |  |
