@@ -2,19 +2,19 @@ import snappy
 from multiprocessing import Process, Queue
 import time
 
-def _worker(func, args, kwargs, queue):
+def _worker(func, args, queue):
     try:
-        result = func(*args, **kwargs)
+        result = func(*args)
         queue.put(("result", result))
     except Exception as e:
         queue.put(("error", e))
 
 
-def run_with_timeout(func, timeout, *args, **kwargs):
+def run_with_timeout(func, *args, timeout):
     queue = Queue()
     process = Process(
         target=_worker,
-        args=(func, args, kwargs, queue)
+        args=(func, args, queue)
     )
 
     process.start()
@@ -41,7 +41,7 @@ def SL2_char_var_ideals(name):
     return I
 
 try:
-    result = run_with_timeout(SL2_char_var_ideals, timeout=2,name)
+    result = run_with_timeout(SL2_char_var_ideals, name, timeout=2)
     print(result)
 except TimeoutError as e:
     print("Timed out!")
