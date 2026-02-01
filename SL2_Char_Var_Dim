@@ -47,7 +47,7 @@ for data in EQN_List:
     name = data[0]
     ideal = data[1]
     print(name)
-    if ideal == "Timed out!":
+    if ideal == "Time out!":
         with open("SL2_Char_Var_Dim","a") as open_file:
             open_file.write("name" + " " + "Equation timed out!\n")    
     else:
