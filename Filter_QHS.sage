@@ -251,24 +251,27 @@ def SL2_char_var_ideals(name):
     I = G.character_variety_vars_and_polys("as_ideals")
     return I
 
-def SL2_char_var_dim(ideal):
-    return I
+def SL2_char_var_dim(ideal_char):
+    return ideal_char.dimension()
 
 for data in EQN_List:
     name = data[0]
-    ideal = data[1]
+    ideal_char = data[1]
     print(name)
-    if ideal == "Time out!":
+    if ideal_char == "Time out!":
         with open("SL2_Char_Var_Dim.txt","a") as open_file:
             open_file.write(name + " " + "Equation timed out!\n")    
     else:
         try:
-            result = run_with_timeout(SL2_char_var_dim,ideal, timeout=5)
+            result = run_with_timeout(SL2_char_var_dim,ideal_char, timeout=5)
             with open("SL2_Char_Var_Dim.txt","a") as open_file:
                 open_file.write(name + " " + str(result) + "\n")
         except TimeoutError as e:
             with open("SL2_Char_Var_Dim.txt","a") as open_file:
                 open_file.write(name + " " + "Dimension timed out!\n")  
+        except RuntimeError:
+            with open("SL2_Char_Var_Dim.txt","a") as open_file:
+                open_file.write(name + " " + "Dimension error!\n")
 
 def find_nth_occurrence(str, char, n):
     start = str.find(char)
@@ -284,6 +287,7 @@ with open("SL2_Char_Var_Dim.txt", "r") as open_file2:
     line_lists2 = open_file2.readlines()
 
 len(line_lists1) == len(line_lists2)
+
 
     
     
