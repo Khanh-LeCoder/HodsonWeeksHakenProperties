@@ -148,7 +148,6 @@ def candidate_hom(num_generators):
     else:
         # currently missing some cases where the image of a generator is trivial. 
         return [["x","y",""],["y","x","x"],["x","y","x"],["x","x","y"]] + [["xy","x","x"],["x","xy","x"],["x","x","xy"]] + [["x","xy","xy"],["xy","x","xy"],["xy","xy","x"]] + [["x","y","xy"],["y","xy","x"],["xy","x","y"],["x","xy","y"],["xy","y","x"],["y","x","xy"]] + [["x","y","yx"],["y","yx","x"],["yx","x","y"],["x","yx","y"],["yx","y","x"],["y","x","yx"]]
-
 def is_trivial(word):
     """
     Input: A word
