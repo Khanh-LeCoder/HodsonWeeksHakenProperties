@@ -29,7 +29,7 @@ def is_QHS3(name):
   """
 
   M = snappy.Manifold(name)
-  return M.homology().betti_number() == 0: 
+  return M.homology().betti_number() == 0
 
 """
 The following functions are used to test whether pi1 has infinite dihedral quotient  
